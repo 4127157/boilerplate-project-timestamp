@@ -2,6 +2,9 @@ var express = require('express');
 var app = express();
 console.log("Hello from myApp");
 
+var cors = require('cors');
+app.use(cors({optionsSuccessStatus: 200}));  // some legacy browsers choke on 204
+
 app.get('/api', function (req, res) {
     console.log("You have reached the 'api' page!");
     res.json({
