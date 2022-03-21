@@ -25,18 +25,20 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get('/api/:date?', function (req, res) {
-    let test;
+    let test = req.params.date;
+
     if (new Date(req.params.date) != "Invalid Date"){
         test = req.params.date;
     } else {
         test = parseInt(req.params.date);
     }
+
     console.log(test);
     let dateHolderUtc,
         dateHolderUnix,
         object;
     
-   if(test === undefined){
+   if(!test){
         dateHolderUtc = new Date().toUTCString();
         dateHolderUnix = Date.parse(dateHolderUtc);
         object = {
