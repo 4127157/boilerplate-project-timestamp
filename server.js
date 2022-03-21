@@ -31,11 +31,6 @@ app.get('/api/:date?', function (req, res) {
         dateHolderUnix,
         object;
     
-   if(new Date(test).toDateString() == "Invalid Date" 
-        && new Date(parseInt(test)).toDateString() == "Invalid Date"){
-        object = {"error": "Invalid Date"};
-   }
-
    if(test == ''){
         dateHolderUtc = new Date();
         dateHolderUnix = Date.parse(dateHolderUtc);
@@ -45,9 +40,21 @@ app.get('/api/:date?', function (req, res) {
         };
     }
 
+   if(new Date(test).toDateString() == "Invalid Date" 
+        && new Date(parseInt(test)).toDateString() == "Invalid Date"){
+        object = {"error": "Invalid Date"};
+   }
+
+
     return res.json(object);
 });
 
+app.get('/api' (req, res) => {
+    res.json({
+        "unix": Date.parse(new Date()),
+        "utc": new Date()
+    });
+});
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
