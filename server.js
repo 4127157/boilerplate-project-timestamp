@@ -38,7 +38,7 @@ app.get('/api/:date?', function (req, res) {
     
    if(!test){
         dateHolderUtc = new Date().toUTCString();
-        dateHolderUnix = Date.parse(dateHolderUtc);
+        dateHolderUnix = Date.UTC(dateHolderUtc);
         object = {
             "unix":dateHolderUnix,
             "utc":dateHolderUtc
@@ -48,7 +48,7 @@ app.get('/api/:date?', function (req, res) {
         object = {"error": "Invalid Date"};
    } else {
        dateHolderUtc = new Date(test).toUTCString();
-       dateHolderUnix = Date.parse(dateHolderUtc);
+       dateHolderUnix = Date.UTC(dateHolderUtc);
        object = {
            "unix": dateHolderUnix,
            "utc": dateHolderUtc
