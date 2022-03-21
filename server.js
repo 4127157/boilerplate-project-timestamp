@@ -31,7 +31,7 @@ app.get('/api/:date?', function (req, res) {
         dateHolderUnix,
         object;
     
-   if(test == ''){
+   if(!test){
         dateHolderUtc = new Date();
         dateHolderUnix = Date.parse(dateHolderUtc);
         object = {
@@ -47,13 +47,6 @@ app.get('/api/:date?', function (req, res) {
 
 
     return res.json(object);
-});
-
-app.get('/api', (req, res) => {
-    res.json({
-        "unix": Date.parse(new Date()),
-        "utc": new Date()
-    });
 });
 
 // listen for requests :)
