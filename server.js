@@ -30,10 +30,12 @@ app.get('/api/:date?', function (req, res) {
         dateHolderUnix,
         object;
     
-    if(new Date(test).toDateString() == "Invalid Date"){
+    if(new Date(test).toDateString() == "Invalid Date" 
+        && new Date(parseInt(test)).toDateString == "Invalid Date"){
         object = {"error": "The date entered is not valid"};
-        return res.json(object);
     }
+
+    return res.json(object);
 });
 
 
