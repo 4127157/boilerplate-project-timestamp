@@ -30,9 +30,10 @@ app.get('/api/:date?', function (req, res) {
     if (new Date(req.params.date) != "Invalid Date" 
         || new Date(test) != "Invalid Date"){
         test = req.params.date;
-    } else {
-        test = req.params.date;
     }
+    // else {
+    //     test = req.params.date;
+    // }
 
     console.log(test);
     let dateHolderUtc,
