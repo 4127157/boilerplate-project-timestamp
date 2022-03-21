@@ -30,17 +30,18 @@ app.get('/api/:date?', function (req, res) {
         dateHolderUnix,
         object;
     
-    if(test == ''){
+   if(new Date(test).toDateString() == "Invalid Date" 
+        && new Date(parseInt(test)).toDateString() == "Invalid Date"){
+        object = {"error": "Invalid Date"};
+   }
+
+   if(test == ''){
         dateHolderUtc = new Date();
         dateHolderUnix = Date.parse(dateHolderUtc);
         object = {
             "unix":dateHolderUnix,
             "utc":dateHolderUtc
         };
-    }
-    if(new Date(test).toDateString() == "Invalid Date" 
-        && new Date(parseInt(test)).toDateString() == "Invalid Date"){
-        object = {"error": "Invalid Date"};
     }
 
     return res.json(object);
