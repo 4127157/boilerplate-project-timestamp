@@ -37,7 +37,7 @@ app.get('/api/:date?', function (req, res) {
         object;
     
    if(!test){
-        dateHolderUtc = new Date();
+        dateHolderUtc = new Date(test).toUTCString();
         dateHolderUnix = Date.parse(dateHolderUtc);
         object = {
             "unix":dateHolderUnix,
