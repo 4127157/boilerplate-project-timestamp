@@ -26,7 +26,7 @@ app.get("/api/hello", function (req, res) {
 
 app.get('/api/:date?', function (req, res) {
     let test;
-    if (isNaN(parseInt(req.params))){
+    if (new Date(req.params.date) != "Invalid Date"){
         test = req.params;
     } else {
         test = parseInt(req.params);
@@ -38,7 +38,7 @@ app.get('/api/:date?', function (req, res) {
     
    if(!test){
         dateHolderUtc = new Date().toUTCString();
-        dateHolderUnix = Date.UTC(dateHolderUtc);
+        dateHolderUnix = Date.parse(dateHolderUtc);
         object = {
             "unix":dateHolderUnix,
             "utc":dateHolderUtc
@@ -48,7 +48,7 @@ app.get('/api/:date?', function (req, res) {
         object = {"error": "Invalid Date"};
    } else {
        dateHolderUtc = new Date(test).toUTCString();
-       dateHolderUnix = Date.UTC(dateHolderUtc);
+       dateHolderUnix = Date.parse(dateHolderUtc);
        object = {
            "unix": dateHolderUnix,
            "utc": dateHolderUtc
