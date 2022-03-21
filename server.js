@@ -26,10 +26,10 @@ app.get("/api/hello", function (req, res) {
 
 app.get('/api/:date?', function (req, res) {
     let test;
-    if (isNaN(parseInt(req.params.date))){
-        test = req.params.date;
+    if (isNaN(parseInt(req.params))){
+        test = req.params;
     } else {
-        test = parseInt(req.params.date);
+        test = parseInt(req.params);
     }
     console.log(test);
     let dateHolderUtc,
