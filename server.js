@@ -38,9 +38,7 @@ app.get('/api/:date?', function (req, res) {
             "unix":dateHolderUnix,
             "utc":dateHolderUtc
         };
-    }
-
-   if(new Date(test).toDateString() == "Invalid Date" 
+    } else if(new Date(test).toDateString() == "Invalid Date" 
         && new Date(parseInt(test)).toDateString() == "Invalid Date"){
         object = {"error": "Invalid Date"};
    }
