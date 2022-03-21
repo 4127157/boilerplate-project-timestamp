@@ -2,8 +2,8 @@
 // where your node app starts
 
 // init project
-var express = require('express');
 var myApp = require('./myApp');
+var express = require('express');
 var app = express();
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
