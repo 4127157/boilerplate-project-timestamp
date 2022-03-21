@@ -25,12 +25,12 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-app.get('/api', function (req, res) {
-    console.log("You have reached the 'api' page!");
-    res.json({
-        "default": "Default message"
-    });
-});
+// app.get('/api', function (req, res) {
+//     console.log("You have reached the 'api' page!");
+//     res.json({
+//         "default": "Default message"
+//     });
+// });
 
 
 // listen for requests :)

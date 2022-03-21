@@ -3,7 +3,7 @@ var app = express();
 console.log("Hello from myApp");
 var cors = require('cors');
 
-
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(cors({optionsSuccessStatus: 200}));  // some legacy browsers choke on 204
 
 app.get('/api', function (req, res) {
