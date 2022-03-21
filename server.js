@@ -25,7 +25,7 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get('/api/:date?', function (req, res) {
-    let test = req.query;
+    let test = req.query.date;
     console.log(test);
     console.log(new Date(test));
     console.log("You have reached the 'api/<something>' page!");
