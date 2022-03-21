@@ -2,7 +2,6 @@
 // where your node app starts
 
 // init project
-const myApp = require('./myApp');
 const express = require('express');
 const app = express();
 
