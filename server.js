@@ -26,12 +26,14 @@ app.get("/api/hello", function (req, res) {
 
 app.get('/api/:date?', function (req, res) {
     let test = req.params.date;
-    console.log(parseInt(test));
-    console.log(new Date(parseInt(test)));
-    console.log("You have reached the 'api/<something>' page!");
-    res.json({
-        "default": "Default message"
-    });
+    let dateHolderUtc,
+        dateHolderUnix,
+        object;
+    
+    if(new Date(test).toDateString() == "Invalid Date"){
+        object = {"error": "The date entered is not valid"};
+    }
+    res.json(object);
 });
 
 
