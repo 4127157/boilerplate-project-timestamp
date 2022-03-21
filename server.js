@@ -2,9 +2,9 @@
 // where your node app starts
 
 // init project
-var myApp = require('./myApp');
-var express = require('express');
-var app = express();
+const myApp = require('./myApp');
+const express = require('express');
+const app = express();
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // so that your API is remotely testable by FCC 
