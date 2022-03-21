@@ -25,7 +25,12 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get('/api/:date?', function (req, res) {
-    let test = req.params.date;
+    let test;
+    if (isNaN(parseInt(req.params.date))){
+        test = req.params.date;
+    } else {
+        test = parseInt(req.params.date);
+    }
     console.log(test);
     let dateHolderUtc,
         dateHolderUnix,
