@@ -25,9 +25,9 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get('/api/:date?', function (req, res) {
-    let test = req.params.date.toString();
+    let test = req.params.date;
     console.log(test);
-    console.log(new Date(test).toDateString());
+    console.log(new Date(parseInt(test)).toDateString());
     console.log("You have reached the 'api/<something>' page!");
     res.json({
         "default": "Default message"
